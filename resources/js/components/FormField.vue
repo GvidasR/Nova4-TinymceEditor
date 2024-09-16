@@ -3,7 +3,7 @@
                 :show-help-text="showHelpText">
     <template #field>
       <editor
-          :id="currentField.attribute"
+          :id="currentField.attribute.replace('.','-')"
           v-model="value"
           :api-key="currentField.options.apiKey"
           :cloud-channel="currentField.options.cloudChannel ?? 6"
