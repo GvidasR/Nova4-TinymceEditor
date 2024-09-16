@@ -5,13 +5,13 @@
       <editor
           :id="currentField.attribute.replace('.','-')"
           v-model="value"
-          :api-key="currentField.options.apiKey"
           :cloud-channel="currentField.options.cloudChannel ?? 6"
           :disabled="currentField.readonly"
           :init="currentField.options.init"
           :placeholder="currentField.name"
           :plugins="currentField.options.plugins"
           :toolbar="currentField.options.toolbar"
+          tinymce-script-src="/vendor/tinymce/tinymce.min.js"
       />
 
     </template>
@@ -34,6 +34,7 @@ export default {
   created () {
     this.setupProtectContent()
     this.setEditorTheme()
+      this.field.options.init.license_key = 'gpl';
   },
 
   methods: {
